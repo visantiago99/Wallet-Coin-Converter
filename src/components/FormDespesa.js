@@ -69,9 +69,10 @@ class FormDespesa extends Component {
     const { value, description, currency } = this.state;
     const { currencies } = this.props;
     return (
-      <form>
+      <form className="form-inputs">
         <label htmlFor="value">
           Valor
+          <br />
           <input
             type="number"
             data-testid="value-input"
@@ -83,6 +84,7 @@ class FormDespesa extends Component {
         </label>
         <label htmlFor="description">
           Descrição
+          <br />
           <textarea
             data-testid="description-input"
             name="description"
@@ -103,6 +105,7 @@ class FormDespesa extends Component {
             {currencies.map((res, i) => <option key={ i } value={ res }>{res}</option>)}
           </select>
         </label>
+        <br />
       </form>
     );
   }
@@ -110,9 +113,10 @@ class FormDespesa extends Component {
   renderForm2() {
     const { method, tag } = this.state;
     return (
-      <form>
+      <form className="form-inputs2">
         <label htmlFor="method">
           Método de pagamento
+          <br />
           <select
             name="method"
             data-testid="method-input"
@@ -127,6 +131,7 @@ class FormDespesa extends Component {
         </label>
         <label htmlFor="tag">
           Tag
+          <br />
           <select
             name="tag"
             id="tag"
@@ -141,6 +146,7 @@ class FormDespesa extends Component {
             <option value="Saúde">Saúde</option>
           </select>
         </label>
+        <br />
       </form>
     );
   }
@@ -148,7 +154,7 @@ class FormDespesa extends Component {
   render() {
     const { MountExpenses, exchange, dispatchFetchMoedas } = this.props;
     return (
-      <div>
+      <div className="form-container">
         {this.renderForm1()}
         {this.renderForm2()}
         {saveChange ? (

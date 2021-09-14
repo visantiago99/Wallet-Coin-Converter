@@ -8,13 +8,14 @@ class Header extends React.Component {
     const exchangeRate = expenses
       .map((v) => Number(v.exchangeRates[v.currency].ask) * Number(v.value));
     return (
-      <div>
+      <div className="header-container">
         <h5 data-testid="email-field">
           Logado como:
           { email }
         </h5>
         <h5 data-testid="header-currency-field">
           Despesa total:
+          <br />
           <span data-testid="total-field">
             {exchangeRate.reduce((acc, curr) => {
               acc += curr;

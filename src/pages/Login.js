@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loginInputs } from '../actions';
+import wallet from '../images/wallet.svg';
 
 class Login extends React.Component {
   constructor() {
@@ -32,10 +33,12 @@ class Login extends React.Component {
     const { dispatchHandleInput, email, password } = this.props;
     const { disable } = this.state;
     return (
-      <div>
+      <div className="login-container">
+        <img src={ wallet } alt="wallet" />
         <h3>Faça login</h3>
         <label htmlFor="email">
           Email de usuário:
+          <br />
           <input
             name="email"
             placeholder="Insira um email válido"
@@ -48,6 +51,7 @@ class Login extends React.Component {
         <br />
         <label htmlFor="email">
           Senha do usuário:
+          <br />
           <input
             name="password"
             placeholder="Mínimo de 6 caracteres"
@@ -57,6 +61,7 @@ class Login extends React.Component {
             onChange={ dispatchHandleInput }
           />
         </label>
+        <br />
         <br />
         <Link to="/carteira">
           <button
